@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js"></script>
+    <script type="module" src="../scripts/app.js" defer></script>
+    <link rel="stylesheet" href="../styles/leaderboard.css" />
+    <title>VV Leaderboard</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+          <li><a href="../pages/mytokens.html">MY COLLECTION</a></li>
+          <li><a href="../pages/alltokens.html">COMPLETE COLLECTION</a></li>
+          
+          <li><a href="../pages/leaderboard.html">LEADERBOARD</a></li>
+          <li><a href="https://etherscan.io/">CONTRACT</a></li>
+          <button id="connectButton">CONNECT</button>
+        </ul>
+    </nav>
+    <nav style ="color: red;">
+    <ul style ="justify-content: center; background-color: red;">
+      <li><a href="../pages/mint.html">M I N T</a></li>
+    </ul>
+    </nav>
+
+    <header>
+      <h1 style="text-align: center; color: #ffffff;">TOP 10 LEADERBOARD</h1>
+    </header>
+    <div id="tokensContainer" class="tokens-container"></div>
+    <script type="module">
+        import { connectMetamask, getLeaders } from '../scripts/app.js';
+  
+        window.addEventListener('load', async () => {
+          await connectMetamask();
+          getLeaders();
+        });
+      </script>
+  </body>
+</html>
