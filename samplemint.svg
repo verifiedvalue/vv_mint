@@ -4,6 +4,7 @@
 <stop stop-color="transparent" offset="0"/>
 <stop stop-color="#A60F2D" offset="1"/>
 <animate fill="freeze" attributeName="y2" dur="3s" values="1000%; 0%"/>
+<animate  attributeName="fill" fill="#A60F2D" begin="3s" dur="0.01s"/>
 </linearGradient>
 </defs>
 <path d="m680 0h-680v680h680v-680z" fill="#14171A">
