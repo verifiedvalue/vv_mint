@@ -54,7 +54,7 @@
       import { connectMetamask, increment, decrement, mintToken, getImage } from '../scripts/app.js';
 
       window.addEventListener('load', async () => {
-        await connectMetamask();
+        //await connectMetamask();
         getImage();
         document.getElementById("connectButton").addEventListener("click", connectMetamask);
         document.getElementById("mintButton").addEventListener("click", mintToken);
