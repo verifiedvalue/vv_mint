@@ -34,11 +34,11 @@
     </div>
 
     <script type="module">
-      import { connectMetamask, checkConnect } from '../scripts/app.js';
+      import { checkConnect } from '../scripts/app.js';
       //checkConnect();
       window.addEventListener('load', async () => {
 
-        document.getElementById("connectButton").addEventListener("click", connectMetamask);
+        document.getElementById("connectButton").addEventListener("click", checkConnect);
         
 
       });

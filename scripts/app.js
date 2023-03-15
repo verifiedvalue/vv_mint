@@ -23,7 +23,7 @@ export async function checkConnect() {
   accounts = await provider.listAccounts();
   walletAddress = accounts[0];
   console.log(walletAddress);
-  if (window.location.pathname === "/index.html") {
+  if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
     window.location.href = "pages/mint.html";
   }
 
