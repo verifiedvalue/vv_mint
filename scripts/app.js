@@ -24,7 +24,7 @@ export async function checkConnect() {
   walletAddress = accounts[0];
   console.log(walletAddress);
   if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
-    window.location.href = "pages/mint.html";
+    window.location.href = "/pages/mint.html";
   }
 
   updateButton(walletAddress);
