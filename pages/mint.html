@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../styles/index.css">
+    <script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js"></script>
+    <script type="module" src="../scripts/app.js" defer></script>
+    <meta charset="UTF-8" />
+    <title>Verified Value - Mint</title>
+    <style>
+
+    </style>
+  </head>
+  <body>
+    <div class="nav-container">
+      <nav>
+        <ul>
+            <li><a href="../pages/mytokens.html">MY VV COLLECTION</a></li>
+            <li><a href="../pages/alltokens.html">VV FIRST 100</a></li>
+            <li><a href="../pages/leaderboard.html">VV LEADERBOARD</a></li>
+            <li><a href="https://opensea.io/0x687F17Bb89494Bee59695F4f5eC41e5690cA6f3a/created">OPENSEA</a></li>
+            <li><a href="https://twitter.com/verifvalue">TWITTER</a></li>
+            <li><a href="https://etherscan.io/address/0x687f17bb89494bee59695f4f5ec41e5690ca6f3a#code">CONTRACT</a></li>
+            <button id="connectButton">CONNECT</button>
+          </ul>
+      </nav>
+      <nav class="second-nav" style="background-color: red;">
+        <ul style="justify-content: center;">
+          <li><a href="../pages/mint.html" style="color: white;">M I N T</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+      <h1 style="text-align: center; color: #ffffff; margin-top: 2%;">VERIFIED VALUE</h1>
+      <h2 style="text-align: center; background-color: #000000; color: rgb(255, 255, 255);">2500 Max Supply</h2>
+      <div style="display: flex; justify-content: center; align-items: center; margin-top: 1%;">
+          <img src="../samplemint.svg" style="max-width: 50%; margin-right: 3%;">
+          <div style="width: 50%;">
+              <ul style="list-style: disc; margin: 0; padding-left: 1.2em; margin-right: 20px;">
+                  <li style="font-size: large; color: #ffffff; margin-bottom: 1em;">Each Verified Value NFT is 100% on-chain.</li>
+                  <li style="font-size: large; color: #ffffff; margin-left: 2em; margin-bottom: 1em;">No IPFS - No 3rd Party - ETH Only.</li>
+                  <li style="font-size: large; color: #ffffff; margin-bottom: 1em;">Verified Value is an animated art piece that dynamically updates to display the current owners wallet balance. (metadata refresh)</li>
+                  <li style="font-size: large; color: #ffffff; margin-bottom: 1em;">Verified Value showcases a secure representation of your ETH status.</li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  
+    <div style="color: #000000; display: flex; justify-content: center; align-items: center; margin: 0;">
+      <h2 id="amount" style="text-align: center; margin-bottom: 1%; margin-top: 3%; background-color: #000000; color: rgb(255, 255, 255);">0.002 </h2>
+      <h2 style="font-family: Arial, Helvetica, sans-serif; margin-left: 10px; text-align: center; background-color: #000000; margin-bottom: 1%; margin-top: 3%; color: rgb(255, 255, 255);">Ξ</h2>
+    </div>
+      <div style="display: flex; justify-content: center; align-items: center; margin: 0; margin-bottom: 0%;">
+        
+        <button style="margin: 0%; margin-right: 2%;" id="decrement">-</button>
+        <h2 type="number" style="color: #ffffff; margin: 0%;" id="quantity">1</h2>
+        <button style="margin: 0%; margin-left: 2%;" id="increment">+</button>
+      </div>
+      <div style="display: flex; justify-content: center; align-items: center; margin: 0;">
+        <button id="mintButton" style="padding: 1%; margin-top: 1%;">MINT (Max 5 / Wallet)</button>
+        
+      </div>
+      <h2 style="text-align: center; background-color: #000000; color: rgb(255, 255, 255); font-size: medium;">You will be redirected to your collection when your tx is confirmed.</h2>
+      <h2 style="text-align: center; background-color: #000000; color: rgb(255, 255, 255); font-size: medium;">You can monitor the tx in Metamask.</h2>
+      
+    </div>
+
+    <script type="module">
+      import { connectMetamask, increment, decrement, mintToken, getImage, checkConnect } from '../scripts/app.js';
+      //connectMetamask();
+      
+      window.addEventListener('load', async () => {
+        
+        checkConnect();
+        document.getElementById("connectButton").addEventListener("click", connectMetamask);
+        document.getElementById("mintButton").addEventListener("click", mintToken);
+        document.getElementById("increment").addEventListener("click", increment);
+        document.getElementById("decrement").addEventListener("click", decrement);
+
+      });
+    </script>
+  </body>
+</html>

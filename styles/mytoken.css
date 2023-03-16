@@ -1,0 +1,120 @@
+body {
+    color: #FFFFFF;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #000000;
+  }
+  h1{
+    font-size:xx-large;
+    font-weight: 100;
+  }
+
+  img{
+    border: 5px solid white;
+  }
+
+
+  #tokensContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* center the container horizontally */
+    max-width: 100%; /* or any width you want */
+    margin: 0 auto; /* center the container vertically */
+  }
+  .token h1 {
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    margin-right: 0.2rem;
+    margin-bottom: 0.1rem;
+  }
+  
+  .token {
+    box-sizing: border-box;
+    padding: 10px;
+    border: 2px solid black;
+    margin-right: 20px;
+    margin-bottom: 20px; /* add margin to the bottom of each token for spacing */
+    width: calc(15%); /* calculate the width of each token based on the number of items per row */
+  }
+  
+  .token img {
+    
+    max-height: 680px;
+    height: auto;
+  }
+  
+  .token h2 {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .token ul li {
+    color: #FFFFFF;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+  }
+
+  .token ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .token li {
+    margin-top: 0.5rem;
+  }
+  
+  nav {
+    background-color: #000000;
+    overflow: hidden;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+  }
+  
+  nav li {
+    float: left;
+  }
+  
+  nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  nav li a:hover {
+    background-color: #111;
+  }
+  
+  #connectButton {
+    height: 80%;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 0 1em;
+    background-color: #342599;
+    color: #ffffff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  #connectButton:hover {
+    background-color: #089a2f;
+  }
+
