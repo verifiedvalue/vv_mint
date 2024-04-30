@@ -1,47 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link rel="stylesheet" type="text/css" href="../styles/index.css">
-    <script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js"></script>
-    <script type="module" src="../scripts/app.js" defer></script>
-    <meta charset="UTF-8" />
-    <title>Verified Value - Mint</title>
-    <style>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Button Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+  <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+  type="application/javascript"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="top-bar">  <!-- Flex container for alignment -->
+    <div id="walletAddress" class="wallet-address">Not Connected</div>
+    <a href="https://warpcast.com/cobsy.eth" target="_blank">
+      <div class="signature">cobsy.eth was here</div>
+  </a>
+</div>
+  <header>
 
-    </style>
-  </head>
-  <body style="background-color: #000000;">
+    <h1>BUTTON GAME</h1>
+  </header>
   
-    <nav>
-        <ul style="justify-content: center;">
-
-
-            <li><a href="https://twitter.com/verifvalue">TWITTER</a></li>
-
-          </ul>
-      </nav>
-    <div style="max-width: 50%; margin: 0 auto; padding: 0%;">
-    <h1 style="text-align: center; color: #ffffff; margin-top: 5%; font-family:monospace; font-size: xxx-large;">VERIFIED VALUE</h1>
-    <img src="samplemint.svg" style="display: block; margin: 0 auto; border: 5px solid white;">
-    <h2 style="text-align: center; color: #ffffff; margin-top: 3%; font-family:monospace;">Minting Now</h2>
-    <h2 style="text-align: center; color: #ffffff; margin-top: 0%; font-family:monospace; font-size: xx-large;">CONNECT TO ENTER</h2>
-
-      <div style="display: flex; justify-content: center; align-items: center; margin: 0px 0;">
-        <button id="connectButton" style="height: 75px; width: 250px; font-family:monospace;">CONNECT</button>
-      </div>
-      <p id="walletName"></p>
-      
+  
+    <p style="font-size: 2vw; padding-top: 1%; padding-bottom: 1%;" class="green-text">LAST DEGEN TO PRESS THE BUTTON WINS</p>
+    <div style="text-align: center;">
+      <ul class="top-hat-list">
+        <li class="list"><span class="top-hat-icon">🎩</span><span class="list-text">THE GAME ENDS WHEN THE BLOCK COUNTDOWN REACHES ZERO</span></li>
+        <li class="list"><span class="top-hat-icon">🎩</span><span class="list-text">THE BLOCK COUNT DOWN IS RESET WITH EACH BUTTON PRESS</span></li>
+        <li class="list"><span class="top-hat-icon">🎩</span><span class="list-text">THE LAST DEGEN CAN CLAIM THE POT WHEN THE GAME ENDS</span></li>
+        <li class="list"><span class="top-hat-icon">🎩</span><span class="list-text">PRESS THE BUTTON TO BECOME THE LAST DEGEN</span></li>
+      </ul>
+    </div>
+    
+    <div class="gameBox">
+    <p id="current" style="font-size: 2em; padding-top: 10px;">LAST DEGEN: <span id="winner"></span></p>
+    <p style="font-size: 3em;">POT: <span id="pot" class="green-text"></span></p>
     </div>
 
-    <script type="module">
-      import { checkConnect } from '../scripts/app.js';
-      //checkConnect();
-      window.addEventListener('load', async () => {
+  
+  <button id="playButton" onclick="playGame()">LOADING GAME</button>
+  <!-- <p style="padding: 10px; text-align: center;"><span id="connectStatus" style="color: #721CB8;"></span></p> -->
 
-        document.getElementById("connectButton").addEventListener("click", checkConnect);
-        
+  <div style="padding-top: 20px;">
+    <p style="padding-bottom: 1%; "><span id="blocksToGo" style="color: #80C423;"></span> BLOCKS TO GO <span id="timeEst" style="color: #ffffff;"></span></p>
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress" id="target-progress"></div>
+      </div>
+    </div>
+    
+    <!-- <div style="position: relative; margin-top: 5px; background-color: white;">
+      <span id="300" class="markings" style="position: absolute; left: 0%;">300</span>
+      <span id="200" class="markings" style="position: absolute; left: 34%; transform: translateX(-25%);">200</span>
+      <span id="100" class="markings" style="position: absolute; left: 66%; transform: translateX(-25%);">100</span>
+      <span id="50" class="markings" style="position: absolute; left: 84%; transform: translateX(-25%);">50</span>
+      <span id="25" class="markings" style="position: absolute; left: 92%; transform: translateX(-25%);">25</span>
+    </div> -->
+    
+    <!-- <p style="padding-top: 10%;">FINAL BLOCK: <span id="target"></span></p>
+    <p>LAST CONFIRMED BLOCK: <span id="block"></span></p>
+    <p>BLOCKS FROM START: <span id="currentPeriod"></span></p> -->
 
-      });
-    </script>
-  </body>
+  </div>
+  <p style="font-size: 1em; padding-top: 0%;">90% OF PAID PLAY IS ADDED TO THE POT. 10% TO BUTTON GAME TEAM.</p>
+  <footer style="background-color: #f4f4f400; padding-top: 50px; text-align: center;">
+    <a style="color: white" href="https://bridge.degen.tips/" target="_blank">Degen Bridge</a> | <a style="color: white" href="https://warpcast.com/~/channel/degenchain" target="_blank">Warpcast</a> | <a style="color: white" href="https://explorer.degen.tips/address/0x755cf904fC21FD7Cd35f56a235107c2D871307f2" target="_blank">Contract</a> | <a style="color: white" href="whitepaper.html" target="_blank">Whitepaper</a> | <a style="color: white" href="leaderboard.html" target="_blank">Leaderboard</a>
+  </footer>
+  <!-- Error Pop-up Modal -->
+  <div id="errorModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Uh oh!</h2>
+        <p id="errorMessage">Something went wrong!</p>
+        <button id="errorButton" style="display: none;">Take Action</button> <!-- Initially hidden -->
+    </div>
+  </div>
+</body>
 </html>
